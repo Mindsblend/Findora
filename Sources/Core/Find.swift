@@ -33,7 +33,7 @@ struct Find: ParsableCommand {
   }
 
   mutating func run() throws {
-    print("🔎 Finding results...")
+    search()
   }
 
   // MARK: - Helper Functions
