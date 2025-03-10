@@ -29,7 +29,13 @@ struct Find: ParsableCommand {
   public var searchInput: String
 
   mutating func validate() throws {
-    try validateSearchInput(for: searchInput)
+    do {
+      try validateSearchInput(for: searchInput)
+    } catch let error as ExecutionError {
+        print(error.description)
+    } catch {
+        print("An unexpected error occurred: \(error.localizedDescription)")
+    }
   }
 
   mutating func run() throws {
@@ -40,6 +46,9 @@ struct Find: ParsableCommand {
   public func validateSearchInput(for searchInput: String) throws {
     if searchInput.isEmpty {
       throw ExecutionError.emptyInput
+    }
+    if searchInput.isEmpty {
+        throw ExecutionError.emptyInput
     }
   }
 

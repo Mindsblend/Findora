@@ -34,7 +34,13 @@ struct Searchmind: ParsableCommand {
   @OptionGroup var options: SearchOptions
 
   mutating func validate() throws {
-    try validateSearchOptions()
+    do {
+        try validateSearchOptions()
+    } catch let error as ExecutionError {
+        print(error.description)
+    } catch {
+        print("An unexpected error occurred: \(error.localizedDescription)")
+    }
   }
 
   mutating func run() throws {
@@ -47,14 +53,15 @@ struct Searchmind: ParsableCommand {
         throw ExecutionError.invalidConfig(options.config.rawValue)
     }
 
-    if let index = options.index, index.isEmpty {
-      throw ExecutionError.emptyInput
+    if options.index.isEmpty {
+        throw ExecutionError.emptyInput
     }
+    print("DEBUG: The index value is \(String(describing: options.index))")
   }
 
   func processSearchOptions() {
     print("🔍 Running SearchMind with:")
-    print("  - Index: \(options.index ?? "default")")
+    print("  - Index: \(options.index)")
     print("  - Config mode: \(options.config.rawValue)")
     print("  - Verbose mode: \(options.verbose ? "ON" : "OFF")")
   }
