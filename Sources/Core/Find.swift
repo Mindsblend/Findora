@@ -26,7 +26,7 @@ struct Find: ParsableCommand {
                                                   subcommands: [])
 
   @Argument(help: "Search input from the user")
-  public var searchInput: String
+  public var searchInput: String = ""
 
   mutating func validate() throws {
     do {
@@ -46,9 +46,6 @@ struct Find: ParsableCommand {
   public func validateSearchInput(for searchInput: String) throws {
     if searchInput.isEmpty {
       throw ExecutionError.emptyInput
-    }
-    if searchInput.isEmpty {
-        throw ExecutionError.emptyInput
     }
   }
 

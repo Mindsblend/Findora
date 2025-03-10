@@ -17,8 +17,22 @@ final class FindTests: XCTestCase {
   }
 
   // MARK: - validateSearchInput() Tests
-  func testEmptyIndexThrowsError() { }
-  func testAvailableIndex() { }
+  func testEmptySearchInputThrowsError() {
+    // Given
+    find.searchInput = ""
+
+    // When & Then
+    XCTAssertThrowsError(try find.validateSearchInput(for: find.searchInput)) { error in
+      XCTAssertEqual(error as? ExecutionError, ExecutionError.emptyInput)
+    }
+  }
+  func testAvailableSearchInput() {
+    // Given
+    find.searchInput = "search"
+
+    // When & Then
+    XCTAssertNoThrow(try find.validateSearchInput(for: find.searchInput))
+  }
 
   // MARK: - search() Tests
 }
