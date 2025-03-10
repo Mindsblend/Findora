@@ -4,7 +4,9 @@ import ArgumentParser
 struct Searchmind: ParsableCommand {
 
   static let configuration = CommandConfiguration(commandName: "searchmind",
-                                                  abstract: "An AI-powered search engine for intelligent recommendations.",
+                                                  abstract: """
+                                                  Use Searchmind to find relevant search results based on your query. Searchmind uses AI to provide you with the most relevant information.
+                                                  """,
                                                   usage: """
                                                   searchmind [OPTIONS] [SUBCOMMAND]
 

@@ -3,7 +3,7 @@ import ArgumentParser
 struct Find: ParsableCommand {
 
   static let configuration = CommandConfiguration(commandName: "find",
-                                                  abstract: "Using AI to find relevant search results based on the query",
+                                                  abstract: "Use the find subcommand in order to find relevant files with the aid of AI",
                                                   usage: """
                                                   searchmind find <text> [OPTIONS]
 
