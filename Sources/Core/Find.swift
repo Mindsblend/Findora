@@ -33,7 +33,7 @@ struct Find: ParsableCommand {
   }
 
   mutating func run() throws {
-    search()
+    search(for: searchInput)
   }
 
   // MARK: - Helper Functions
@@ -43,7 +43,7 @@ struct Find: ParsableCommand {
     }
   }
 
-  func search() {
+  func search(for searchInput: String) {
     print("🔎 Finding results...")
   }
 }
