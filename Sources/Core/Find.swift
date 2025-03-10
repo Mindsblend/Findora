@@ -44,6 +44,6 @@ struct Find: ParsableCommand {
   }
 
   func search(for searchInput: String) {
-    print("🔎 Finding results...")
+    print("🔎 Finding results for '\(searchInput)'")
   }
 }
