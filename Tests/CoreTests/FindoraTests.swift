@@ -1,18 +1,18 @@
 import XCTest
-@testable import searchmind
+@testable import findora
 
-final class SearchmindTests: XCTestCase {
+final class FindoraTests: XCTestCase {
 
   // MARK: - Setup
-  var searchmind: Searchmind!
+  var findora: Findora!
 
   override func setUp() {
       super.setUp()
-      searchmind = Searchmind()
+      findora = Findora()
   }
 
   override func tearDown() {
-      searchmind = nil
+      findora = nil
       super.tearDown()
   }
 
@@ -20,38 +20,38 @@ final class SearchmindTests: XCTestCase {
   func testValidConfigAndIndex() {
     // Given
     let options = SearchOptions(index: "default", config: .debug, verbose: false)
-    searchmind.options = options
+    findora.options = options
 
     // When & Then
-    XCTAssertNoThrow(try searchmind.validateSearchOptions())
+    XCTAssertNoThrow(try findora.validateSearchOptions())
   }
   func testNilIndexDoesNotThrowError() {
     // Given
     let options = SearchOptions(config: .debug, verbose: false) // Index sets to 'default' when it's not provided by the user
-    searchmind.options = options
+    findora.options = options
 
     // When & Then
-    XCTAssertNoThrow(try searchmind.validateSearchOptions())
+    XCTAssertNoThrow(try findora.validateSearchOptions())
   }
   func testInvalidConfigThrowsError() {
     // Given
     let options = SearchOptions(index: "default", config: .invalid, verbose: false)
-    searchmind.options = options
+    findora.options = options
 
 
     // When & Then
-    XCTAssertThrowsError(try searchmind.validateSearchOptions()) { error in
-        XCTAssertEqual(error as? ExecutionError, ExecutionError.invalidConfig(searchmind.options.config.rawValue))
+    XCTAssertThrowsError(try findora.validateSearchOptions()) { error in
+        XCTAssertEqual(error as? ExecutionError, ExecutionError.invalidConfig(findora.options.config.rawValue))
     }
   }
   
   func testEmptyIndexThrowsError() {
     // Given
     let options = SearchOptions(index: "", config: .debug, verbose: false)
-    searchmind.options = options
+    findora.options = options
 
     // When & Then
-    XCTAssertThrowsError(try searchmind.validateSearchOptions()) { error in
+    XCTAssertThrowsError(try findora.validateSearchOptions()) { error in
       XCTAssertEqual(error as? ExecutionError, ExecutionError.emptyInput)
     }
   }

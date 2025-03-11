@@ -5,11 +5,11 @@ struct Find: ParsableCommand {
   static let configuration = CommandConfiguration(commandName: "find",
                                                   abstract: "Use the find subcommand in order to find relevant files with the aid of AI",
                                                   usage: """
-                                                  searchmind find <text> [OPTIONS]
+                                                  findora find <text> [OPTIONS]
 
                                                   Example:
-                                                    searchmind find "latest AI research"
-                                                    searchmind find "Swift design patterns"
+                                                  findora find "latest AI research"
+                                                  findora find "Swift design patterns"
                                                   """,
                                                   discussion: """
                                                   The 'find' command allows you to search for relevant information using AI-powered recommendations.
@@ -21,7 +21,7 @@ struct Find: ParsableCommand {
 
                                                   Example Usage:
                                                   - Find AI-related articles:
-                                                    searchmind find "AI ethics"
+                                                  findora find "AI ethics"
                                                   """,
                                                   subcommands: [])
 

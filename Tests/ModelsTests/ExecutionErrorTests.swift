@@ -1,5 +1,5 @@
 import XCTest
-@testable import searchmind
+@testable import findora
 
 final class ExecutionErrorTests: XCTestCase {
 

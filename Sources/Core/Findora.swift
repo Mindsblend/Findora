@@ -1,21 +1,21 @@
 import ArgumentParser
 
 @main
-struct Searchmind: ParsableCommand {
+struct Findora: ParsableCommand {
 
-  static let configuration = CommandConfiguration(commandName: "searchmind",
+  static let configuration = CommandConfiguration(commandName: "findora",
                                                   abstract: """
-                                                  Use Searchmind to find relevant search results based on your query. Searchmind uses AI to provide you with the most relevant information.
+                                                  Use Findora to find relevant search results based on your query. Findora uses AI to provide you with the most relevant information.
                                                   """,
                                                   usage: """
-                                                  searchmind [OPTIONS] [SUBCOMMAND]
+                                                  findora [OPTIONS] [SUBCOMMAND]
 
                                                   Example:
-                                                    searchmind --index "my_index" --config debug
-                                                    searchmind find "AI trends"
+                                                  findora --index "my_index" --config debug
+                                                  findora find "AI trends"
                                                   """,
                                                   discussion: """
-                                                  SearchMind is an intelligent search tool designed to help users find relevant 
+                                                  Findora is an intelligent search tool designed to help users find relevant 
                                                   information quickly using AI-powered recommendations.
 
                                                   Features:
@@ -26,7 +26,7 @@ struct Searchmind: ParsableCommand {
                                                   Available Subcommands:
                                                   - find: Finds relevant search results based on the query.
 
-                                                  Run `searchmind [SUBCOMMAND] --help` for details on each command.
+                                                  Run `findora [SUBCOMMAND] --help` for details on each command.
                                                   """,
                                                   version: "1.0.0",
                                                   subcommands: [Find.self])
@@ -60,7 +60,7 @@ struct Searchmind: ParsableCommand {
   }
 
   func processSearchOptions() {
-    print("🔍 Running SearchMind with:")
+    print("🔍 Running Findora with:")
     print("  - Index: \(options.index)")
     print("  - Config mode: \(options.config.rawValue)")
     print("  - Verbose mode: \(options.verbose ? "ON" : "OFF")")

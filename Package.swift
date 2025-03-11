@@ -4,23 +4,23 @@
 import PackageDescription
 
 let package = Package(
-    name: "searchmind",
+    name: "findora",
     platforms: [.macOS(.v12)],
     products: [
-        .executable(name: "searchmind", targets: ["searchmind"])
+        .executable(name: "findora", targets: ["findora"])
     ],
     dependencies: [
         .package(url: "https://github.com/apple/swift-argument-parser", from: "1.3.0"),
     ],
     targets: [
-        .executableTarget(name: "searchmind", dependencies: [
+        .executableTarget(name: "findora", dependencies: [
             .product(name: "ArgumentParser", package: "swift-argument-parser"),
         ]),
         .testTarget(name: "CoreTests",
-                    dependencies: ["searchmind"]),
+                    dependencies: ["findora"]),
         .testTarget(name: "ModelsTests",
-                    dependencies: ["searchmind"]),
+                    dependencies: ["findora"]),
         .testTarget(name: "UtilitiesTests",
-                    dependencies: ["searchmind"]),
+                    dependencies: ["findora"]),
     ]
 )
